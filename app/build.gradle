@@ -1,0 +1,35 @@
+//声明是Android
+apply plugin: 'com.android.application'
+
+android {
+    //编译SDK版本
+    compileSdkVersion 22
+    //build tools 版本
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        //应用包名
+        applicationId "com.myking.test"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            //debug 模式
+        }
+        release {
+            //是否进行混淆
+            minifyEnabled false
+            //混淆文件的位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //编译 libs 目录下的所有 jar 包
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.code.gson:gson:2.5'
+}
